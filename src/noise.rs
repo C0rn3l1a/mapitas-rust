@@ -4,7 +4,7 @@ struct Gradient {
     z: f64
 }
 
-fn dot(grad: Gradient, x: f64, y:f64) -> f64{
+fn dot(grad: &Gradient, x: f64, y:f64) -> f64{
     let ret = (grad.x * x) + (grad.y * y);
     return ret;
 }
@@ -80,7 +80,7 @@ pub fn noise_2D(xin: f64, yin: f64) -> f64{
         n0 = 0.0
     } else {
       t0 *= t0;
-      n0 = t0 * t0 * dot(Gradient{x: grad3[gi0].x, y: grad3[gi0].y, z: grad3[gi0].z}, x0, y0);  // (x,y) of grad3 used for 2D gradient
+      n0 = t0 * t0 * dot(&grad3[gi0], x0, y0);  // (x,y) of grad3 used for 2D gradient
     }
 
     let mut t1 = 0.5 - x1 * x1 - y1 * y1;
@@ -88,7 +88,7 @@ pub fn noise_2D(xin: f64, yin: f64) -> f64{
         n1 = 0.0
     } else {
       t1 *= t1;
-      n1 = t1 * t1 * dot(Gradient{x: grad3[gi1].x, y: grad3[gi1].y, z: grad3[gi1].z}, x1, y1);
+      n1 = t1 * t1 * dot(&grad3[gi1], x1, y1);
     }
 
     let mut t2 = 0.5 - x2 * x2 - y2 * y2;
@@ -96,7 +96,7 @@ pub fn noise_2D(xin: f64, yin: f64) -> f64{
         n2 = 0.0
     } else {
       t2 *= t2;
-      n2 = t2 * t2 * dot(Gradient{x: grad3[gi2].x, y: grad3[gi2].y, z: grad3[gi2].z}, x2, y2);
+      n2 = t2 * t2 * dot(&grad3[gi2], x2, y2);
     }
 
     return 70.0 * (n0 + n1 + n2);
