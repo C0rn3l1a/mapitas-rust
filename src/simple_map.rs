@@ -1,18 +1,18 @@
 use crate::noise::noise_2D;
 
-type Color = (i32, i32, i32, i32);
+pub type Color = (f32, f32, f32, f32);
 
-const RED: Color = (255,0,0,255);
-const GREEN: Color = (0,255,0,255);
-const BLUE: Color = (0,0,255,255);
-const BROWN: Color = (150,100, 50, 255);
-const YELLOW: Color = (255,255,0,255);
-const WHITE: Color = (255,255,255,255);
-const LIGHT_BLUE: Color = (0, 220, 220,255);
-const DARK_BLUE: Color = (0,0,122,255);
-const DARK_GREEN: Color = (0,122,0,255);
-const LIGHT_BROWN: Color = (200,100,50,255);
-const LIGHT_YELLOW: Color = (255,255,122,255);
+pub const RED: Color = (255.0/255.0 ,0.0/255.0 ,0.0/255.0 ,255.0/255.0 );
+pub const GREEN: Color = (0.0,255.0/255.0 ,0.0,255.0/255.0 );
+pub const BLUE: Color = (0.0,0.0,255.0/255.0 ,255.0/255.0 );
+pub const BROWN: Color = (150.0/255.0 ,100.0/255.0 , 50.0/255.0 , 255.0/255.0 );
+pub const YELLOW: Color = (255.0/255.0 ,255.0/255.0 ,0.0,255.0);
+pub const WHITE: Color = (255.0/255.0 ,255.0/255.0 ,255.0/255.0 ,255.0/255.0 );
+pub const LIGHT_BLUE: Color = (0.0, 220.0/255.0 , 220.0/255.0 ,255.0/255.0 );
+pub const DARK_BLUE: Color = (0.0,0.0,122.0/255.0 ,255.0/255.0 );
+pub const DARK_GREEN: Color = (0.0,122.0/255.0 ,0.0,255.0/255.0 );
+pub const LIGHT_BROWN: Color = (200.0/255.0 ,100.0/255.0 ,50.0/255.0 ,255.0/255.0 );
+pub const LIGHT_YELLOW: Color = (255.0/255.0 ,255.0/255.0 ,122.0/255.0 ,255.0/255.0 );
 
 pub enum Entity{
     HighMountain,
